@@ -1,0 +1,95 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+vfa
+Z0 !s110 1554213787
+!i10b 1
+!s100 ?UizbK6WlanbO:zPmRVBc1
+Ibo[U<d1:<hl1>8UPhZQOZ2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dE:/KTS nang cao/Lab1/FA_4b_Structural
+Z3 w1554212324
+Z4 8E:/KTS nang cao/Lab1/FA_4b_Structural/FA_4b_Structural.v
+Z5 FE:/KTS nang cao/Lab1/FA_4b_Structural/FA_4b_Structural.v
+L0 10
+Z6 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z7 !s108 1554213787.000000
+Z8 !s107 E:/KTS nang cao/Lab1/FA_4b_Structural/FA_4b_Structural.v|
+Z9 !s90 -reportprogress|300|-work|lab1|-stats=none|E:/KTS nang cao/Lab1/FA_4b_Structural/FA_4b_Structural.v|
+!s101 -O0
+!i113 1
+Z10 o-work lab1 -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vFA_4b_Testbench
+R0
+!i10b 1
+!s100 jTc`dNYfA_KRaO23h^YhK0
+I4@nIR9FWAIZ5P9kPg3kMO3
+R1
+R2
+w1554213773
+8E:/KTS nang cao/Lab1/FA_4b_Testbench.v
+FE:/KTS nang cao/Lab1/FA_4b_Testbench.v
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+!s107 E:/KTS nang cao/Lab1/FA_4b_Testbench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/Lab1/FA_4b_Testbench.v|
+!s101 -O0
+!i113 1
+o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+n@f@a_4b_@testbench
+vfull_adder_4b
+R0
+!i10b 1
+!s100 53T`KQgdBZe6A2Z1L9UYV0
+I:>:7VegEQYMYloE6TgXN33
+R1
+R2
+R3
+R4
+R5
+L0 20
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vha
+R0
+!i10b 1
+!s100 hD0WD^Ka4?DO;I31[M=dC2
+IC8LJag^l?`De9dHeM33Li0
+R1
+R2
+R3
+R4
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10

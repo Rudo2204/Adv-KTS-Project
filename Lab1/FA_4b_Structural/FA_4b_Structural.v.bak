@@ -1,0 +1,25 @@
+module ha(a, b, s, c);
+input a, b;
+output s, c;
+assign s = a ^ b;
+assign c = a & b;
+endmodule
+module fa(a, b, cin, sum, cout);
+input a, b, cin;
+output sum, cout;
+wire c1, c2, s1;
+ha u1(a, b, s1, c1);
+ha u2(s1, cin, sum, c2);
+or (cout, c1, c2);
+endmodule
+module full_adder_4b(a, b, cin, sum, cout);
+input [3:0] a, b;
+input cin;
+output [3:0] sum;
+output cout;
+wire [2:0] transfer;
+fa fa1(a[0], b[0], cin, sum[0], transfer[0]);
+fa fa2(a[1], b[1], transfer[0], sum[1], transfer[1]);
+fa fa3(a[2], b[2], transfer[1], sum[2], transfer[2]);
+fa fa4(a[3], b[3], transfer[2], sum[3], cout);
+endmodule

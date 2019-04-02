@@ -1,0 +1,74 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/KTS nang cao/Lab1/FA_4b_Behavioral
+vfa
+!s110 1554216014
+!i10b 1
+!s100 gf_BeFkH;T]S6g_IanmOF3
+I470n]MRRQZA`MHWLFHlE12
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1554215142
+Z2 8E:/KTS nang cao/Lab1/FA_4b_Behavioral/FA_4b_Behavioral.v
+Z3 FE:/KTS nang cao/Lab1/FA_4b_Behavioral/FA_4b_Behavioral.v
+L0 2
+Z4 OP;L;10.4a;61
+r1
+!s85 0
+31
+!s108 1554216013.000000
+Z5 !s107 E:/KTS nang cao/Lab1/FA_4b_Behavioral/FA_4b_Behavioral.v|
+Z6 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/Lab1/FA_4b_Behavioral/FA_4b_Behavioral.v|
+!s101 -O0
+!i113 1
+Z7 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vFA_4b_Testbench
+Z8 !s110 1554218267
+!i10b 1
+!s100 ]9mzgG:QPhIL:aIBG;eYS3
+I[ohOkfF^;TCma;VAUlLG?3
+R1
+R0
+w1554218263
+8E:/KTS nang cao/Lab1/FA_4b_Testbench.v
+FE:/KTS nang cao/Lab1/FA_4b_Testbench.v
+L0 1
+R4
+r1
+!s85 0
+31
+Z9 !s108 1554218267.000000
+!s107 E:/KTS nang cao/Lab1/FA_4b_Testbench.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/Lab1/FA_4b_Testbench.v|
+!s101 -O0
+!i113 1
+R7
+n@f@a_4b_@testbench
+vfull_adder_4b
+R8
+!i10b 1
+!s100 1mhi0FM[ad_kVDgLQ3IJP3
+IRTzncB_=@Y>Zcz]hi5T4G1
+R1
+R0
+w1554217794
+R2
+R3
+L0 1
+R4
+r1
+!s85 0
+31
+R9
+R5
+R6
+!s101 -O0
+!i113 1
+R7

@@ -1,0 +1,61 @@
+// Component full-adder 1 bit [Behavioral]
+module fa(a, b, cin, sum, cout);
+input a, b, cin;
+output reg sum, cout;
+reg t1, t2, t3, s1;
+always@(a, b, cin)
+begin
+t1 = a & b;
+t2 = b & cin;
+t3 = cin & a;
+cout = t1 | t2 | t3;
+s1 = a^b;
+sum = s1^cin;
+end
+endmodule
+
+// Component Half-adder 1 bit [Structural]
+module ha(a, b, s, c);
+input a, b;
+output s, c;
+assign s = a ^ b;
+assign c = a & b;
+endmodule
+
+// Component Full-adder 1 bit built from 2 half-adders 1 bit [Structural]
+module fa(a, b, cin, sum, cout);
+input a, b, cin;
+output sum, cout;
+wire c1, c2, s1;
+ha u1(a, b, s1, c1);
+ha u2(s1, cin, sum, c2);
+or (cout, c1, c2);
+endmodule
+
+// Component Full-adder 1 bit [Data flow model]
+module fa(a, b, cin, sum, cout);
+input a, b, cin;
+output sum, cout;
+assign sum = a ^ b ^ cin;
+assign cout = (a & b) | (b & cin) | (cin & a);
+endmodule
+
+// Component Full-adder 1 bit [Mixed]
+module fa(a, b, cin, sum, cout);
+input a, b, cin;
+output sum, cout;
+reg cout;
+wire s1; // signal
+reg t1, t2, t3; // variables
+xor u1(s1, a, b); // structural xor
+assign sum = s1 ^ cin; // data flow
+
+// carry using behavioral
+always@(a,b,cin)
+begin
+t1 = a & b;
+t2 = a & cin;
+t3 = cin & b;
+cout = t1 | t2 | t3;
+end
+endmodule

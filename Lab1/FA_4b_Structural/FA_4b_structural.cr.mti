@@ -1,0 +1,17 @@
+{E:/KTS nang cao/Lab1/FA_4b_Testbench.v} {1 {vlog -work work -stats=none {E:/KTS nang cao/Lab1/FA_4b_Testbench.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module FA_4b_Testbench
+
+Top level modules:
+	FA_4b_Testbench
+
+} {} {}} {E:/KTS nang cao/Lab1/FA_4b_Structural/FA_4b_Structural.v} {1 {vlog -work lab1 -stats=none {E:/KTS nang cao/Lab1/FA_4b_Structural/FA_4b_Structural.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ha
+-- Compiling module fa
+-- Compiling module full_adder_4b
+
+Top level modules:
+	full_adder_4b
+
+} {} {}}
