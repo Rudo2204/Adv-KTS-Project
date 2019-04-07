@@ -22,7 +22,7 @@ initial begin
 // Init Inputs
 a = 4'b0;
 b = 4'b0;
-cin = 4'b0;
+cin = 1'b0;
 
 // Wait 10ns for global reset
 #10
