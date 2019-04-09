@@ -9,23 +9,23 @@ z2
 cModel Technology
 dC:/Modeltech_pe_edu_10.4a/examples
 vadder
-Z0 !s110 1554672594
+Z0 !s110 1554784156
 !i10b 1
 !s100 3Se=ocAUG`:RXEFndFDOg1
-IjV<aaNZmf^HjEbZ;1dFFB0
+I7@W3Y7>^bIgHiTzD_VGZN0
 Z1 VDg1SIo80bB@j0V0VzS_@n1
 Z2 dE:/KTS nang cao/FPU
-Z3 w1554672592
-Z4 8E:/KTS nang cao/FPU/fpu.v
-Z5 FE:/KTS nang cao/FPU/fpu.v
+Z3 w1554783046
+Z4 8E:\KTS nang cao\FPU\fpu.v
+Z5 FE:\KTS nang cao\FPU\fpu.v
 L0 155
 Z6 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z7 !s108 1554672594.000000
-Z8 !s107 E:/KTS nang cao/FPU/fpu.v|
-Z9 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/fpu.v|
+Z7 !s108 1554784156.000000
+Z8 !s107 E:\KTS nang cao\FPU\fpu.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|E:\KTS nang cao\FPU\fpu.v|
 !s101 -O0
 !i113 1
 Z10 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
@@ -37,16 +37,16 @@ IPBI2ZNTj@B5mGZ8Pb;<dh0
 R1
 R2
 w1554666485
-R4
-R5
+Z11 8E:/KTS nang cao/FPU/fpu.v
+Z12 FE:/KTS nang cao/FPU/fpu.v
 L0 16
 R6
 r1
 !s85 0
 31
 !s108 1554666487.000000
-R8
-R9
+Z13 !s107 E:/KTS nang cao/FPU/fpu.v|
+Z14 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/fpu.v|
 !s101 -O0
 !i113 1
 R10
@@ -54,7 +54,7 @@ vaddition_normaliser
 R0
 !i10b 1
 !s100 VHh;9Wj=am9<l4Q@]VzP83
-In6ifYGR8zigYi?U3hjK8E0
+Ine4Y7cb>PDjU>7Gi;UM3z0
 R1
 R2
 R3
@@ -75,7 +75,7 @@ vdivider
 R0
 !i10b 1
 !s100 6cll24Kl9ELAmJk?UY`iD1
-IfHj0jjPkY1jS<mC@MOH@k0
+IMOCIBa=26O]5SzbR9KXW70
 R1
 R2
 R3
@@ -100,16 +100,16 @@ I_j5PML5T6fV1HGILDVMJ23
 R1
 R2
 w1554669327
-R4
-R5
+R11
+R12
 L0 566
 R6
 r1
 !s85 0
 31
 !s108 1554669332.000000
-R8
-R9
+R13
+R14
 !s101 -O0
 !i113 1
 R10
@@ -117,7 +117,7 @@ vfa_24b
 R0
 !i10b 1
 !s100 KjQSo@^c^h^QP]NM>b?@_0
-I]VCC6]FT5=jBU]PzC4EBh2
+Io<dm4z>iDm_DTgVV6H?dl3
 R1
 R2
 R3
@@ -138,7 +138,7 @@ vfpu
 R0
 !i10b 1
 !s100 Wo<ea1nbgc>Q>oJQQ2[C70
-IbQJ=JnI:E4<D7H?M1:O^00
+I9_V6`zVKMK@n5D<_UH[FM2
 R1
 R2
 R3
@@ -158,11 +158,11 @@ R10
 vfpu_tb
 R0
 !i10b 1
-!s100 WQ8<TWRd;B=QzjQ:GhQbB1
-Ik<QV5c?`X2UFjb:@HCc3D3
+!s100 ^<QRb9Hi]R5G4AgCBDAl80
+I1>H87Y7_i?ISHd3M?85Jn3
 R1
 R2
-w1554667552
+w1554783806
 8E:/KTS nang cao/FPU/fpu_tb.v
 FE:/KTS nang cao/FPU/fpu_tb.v
 L0 6
@@ -184,16 +184,16 @@ IaaAl>2>hH8jgXl;h?lfM53
 R1
 R2
 w1554666245
-R4
-R5
+R11
+R12
 L0 2
 R6
 r1
 !s85 0
 31
 !s108 1554666249.000000
-R8
-R9
+R13
+R14
 !s101 -O0
 !i113 1
 R10
@@ -201,7 +201,7 @@ vmultiplication_normaliser
 R0
 !i10b 1
 !s100 PV@<C`8TaZ[M]2]i3`K3g0
-IY`e=bU5GlD0<FD9hWdmnO0
+I]cC6[<k7@RTaINjCRIifW2
 R1
 R2
 R3
@@ -222,7 +222,7 @@ vmultiplier
 R0
 !i10b 1
 !s100 EI;4i_`>E0U2l__<]Samc0
-If;[F[=`jfmX>XP4YWTHQn2
+IWCdfa6jbE:NFJGA^6cM`l2
 R1
 R2
 R3
@@ -243,7 +243,7 @@ vreciprocal
 R0
 !i10b 1
 !s100 M=a[@;7XUX^kZ<DLzO>Kb1
-I<Z9=eQ9BPBd3>oh@FmSig1
+IFW3MQNI_<TKLa7dn?jlXj3
 R1
 R2
 R3

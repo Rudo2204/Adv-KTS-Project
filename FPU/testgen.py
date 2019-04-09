@@ -39,7 +39,7 @@ for n in range (0, numTests):
         f.write("a = 32'b" + binary(a) + ";\n")
         f.write("b = 32'b" + binary(b) + ";\n")
         f.write("correct = 32'b" + binary(result) + ";\n")
-        f.write("#400 //" + str(a[0]) + " * " + str(b[0]) + " = " + str(result[0]) + "\n")
+        f.write("#400 //" + str(a[0]) + " {} ".format(op) + str(b[0]) + " = " + str(result[0]) + "\n")
         if(op == "ADD"):
             f.write("if ((correct - out > 2) && (out - correct > 2)) begin\n")
         elif(op == "SUB"):
