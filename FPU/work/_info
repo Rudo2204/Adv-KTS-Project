@@ -1,0 +1,262 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+vadder
+Z0 !s110 1554672594
+!i10b 1
+!s100 3Se=ocAUG`:RXEFndFDOg1
+IjV<aaNZmf^HjEbZ;1dFFB0
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dE:/KTS nang cao/FPU
+Z3 w1554672592
+Z4 8E:/KTS nang cao/FPU/fpu.v
+Z5 FE:/KTS nang cao/FPU/fpu.v
+L0 155
+Z6 OP;L;10.4a;61
+r1
+!s85 0
+31
+Z7 !s108 1554672594.000000
+Z8 !s107 E:/KTS nang cao/FPU/fpu.v|
+Z9 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/fpu.v|
+!s101 -O0
+!i113 1
+Z10 o-work work -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact -O0
+vadder_mantissa
+!s110 1554666487
+!i10b 1
+!s100 `oDJN??jjWd1Q3ANiEH5`1
+IPBI2ZNTj@B5mGZ8Pb;<dh0
+R1
+R2
+w1554666485
+R4
+R5
+L0 16
+R6
+r1
+!s85 0
+31
+!s108 1554666487.000000
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vaddition_normaliser
+R0
+!i10b 1
+!s100 VHh;9Wj=am9<l4Q@]VzP83
+In6ifYGR8zigYi?U3hjK8E0
+R1
+R2
+R3
+R4
+R5
+L0 350
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vdivider
+R0
+!i10b 1
+!s100 6cll24Kl9ELAmJk?UY`iD1
+IfHj0jjPkY1jS<mC@MOH@k0
+R1
+R2
+R3
+R4
+R5
+L0 457
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vfa
+!s110 1554669332
+!i10b 1
+!s100 lSdIL0>VE2152Xn6[9<hR3
+I_j5PML5T6fV1HGILDVMJ23
+R1
+R2
+w1554669327
+R4
+R5
+L0 566
+R6
+r1
+!s85 0
+31
+!s108 1554669332.000000
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vfa_24b
+R0
+!i10b 1
+!s100 KjQSo@^c^h^QP]NM>b?@_0
+I]VCC6]FT5=jBU]PzC4EBh2
+R1
+R2
+R3
+R4
+R5
+L0 575
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vfpu
+R0
+!i10b 1
+!s100 Wo<ea1nbgc>Q>oJQQ2[C70
+IbQJ=JnI:E4<D7H?M1:O^00
+R1
+R2
+R3
+R4
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vfpu_tb
+R0
+!i10b 1
+!s100 WQ8<TWRd;B=QzjQ:GhQbB1
+Ik<QV5c?`X2UFjb:@HCc3D3
+R1
+R2
+w1554667552
+8E:/KTS nang cao/FPU/fpu_tb.v
+FE:/KTS nang cao/FPU/fpu_tb.v
+L0 6
+R6
+r1
+!s85 0
+31
+R7
+!s107 E:/KTS nang cao/FPU/fpu_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/fpu_tb.v|
+!s101 -O0
+!i113 1
+R10
+vha
+!s110 1554666249
+!i10b 1
+!s100 a61UnSB6[eQ5>EbCZWKoA1
+IaaAl>2>hH8jgXl;h?lfM53
+R1
+R2
+w1554666245
+R4
+R5
+L0 2
+R6
+r1
+!s85 0
+31
+!s108 1554666249.000000
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vmultiplication_normaliser
+R0
+!i10b 1
+!s100 PV@<C`8TaZ[M]2]i3`K3g0
+IY`e=bU5GlD0<FD9hWdmnO0
+R1
+R2
+R3
+R4
+R5
+L0 426
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vmultiplier
+R0
+!i10b 1
+!s100 EI;4i_`>E0U2l__<]Samc0
+If;[F[=`jfmX>XP4YWTHQn2
+R1
+R2
+R3
+R4
+R5
+L0 280
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
+vreciprocal
+R0
+!i10b 1
+!s100 M=a[@;7XUX^kZ<DLzO>Kb1
+I<Z9=eQ9BPBd3>oh@FmSig1
+R1
+R2
+R3
+R4
+R5
+L0 479
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!s101 -O0
+!i113 1
+R10
