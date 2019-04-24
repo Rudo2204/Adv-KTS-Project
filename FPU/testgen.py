@@ -25,9 +25,9 @@ for n in range (0, numTests):
     #then decrement n and try again
     try:
         byte = np.random.bytes(4)
-        a = np.fromstring(byte, dtype=np.float32)
+        a = np.frombuffer(byte, dtype=np.float32)
         byte = np.random.bytes(4)
-        b = np.fromstring(byte, dtype=np.float32)
+        b = np.frombuffer(byte, dtype=np.float32)
         if(op == "ADD"):
             result = a + b
         elif(op == "SUB"):
@@ -54,4 +54,4 @@ for n in range (0, numTests):
         f.write("$display (\"Correct: %b %b %b %h\",correct[31], correct[30:23], correct[22:0], correct); $display();end\n")
     except:
         n -= 1
-f.write("$display (\"Done.\");\n$finish;\n // stop the simulation\n end\n\nendmodule")
+f.write("$display (\"Done.\");\n$stop;\n // stop the simulation\n end\n\nendmodule")

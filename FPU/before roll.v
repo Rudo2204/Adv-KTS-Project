@@ -178,25 +178,138 @@ module adder(a, b, out);
   wire [7:0] o_e;
   wire [24:0] o_m;
   
-  reg [23:0] add_a_in;
-  reg [23:0] add_b_in;
-  reg cin;
-  wire [24:0] add_out;
+    reg [23:0] add_a_in0;
+	reg [23:0] add_b_in0;
+	wire [24:0] add_out0;
 
-  addition_normaliser norm1
-  (
-    .in_e(i_e),
-    .in_m(i_m),
-    .out_e(o_e),
-    .out_m(o_m)
-  );
+	fa_24b add0
+	(
+		.a(add_a_in0),
+		.b(add_b_in0),
+		.out(add_out0)
+	);
+
+	reg [23:0] add_a_in1;
+	reg [23:0] add_b_in1;
+	wire [24:0] add_out1;
+
+	fa_24b add1
+	(
+		.a(add_a_in1),
+		.b(add_b_in1),
+		.out(add_out1)
+	);
+
+	reg [23:0] add_a_in2;
+	reg [23:0] add_b_in2;
+	wire [24:0] add_out2;
+
+	fa_24b add2
+	(
+		.a(add_a_in2),
+		.b(add_b_in2),
+		.out(add_out2)
+	);
+
+	reg [23:0] add_a_in3;
+	reg [23:0] add_b_in3;
+	wire [24:0] add_out3;
+
+	fa_24b add3
+	(
+		.a(add_a_in3),
+		.b(add_b_in3),
+		.out(add_out3)
+	);
+
+	reg [23:0] add_a_in4;
+	reg [23:0] add_b_in4;
+	wire [24:0] add_out4;
+
+	fa_24b add4
+	(
+		.a(add_a_in4),
+		.b(add_b_in4),
+		.out(add_out4)
+	);
+
+	reg [23:0] add_a_in5;
+	reg [23:0] add_b_in5;
+	wire [24:0] add_out5;
+
+	fa_24b add5
+	(
+		.a(add_a_in5),
+		.b(add_b_in5),
+		.out(add_out5)
+	);
+
+	reg [23:0] add_a_in6;
+	reg [23:0] add_b_in6;
+	wire [24:0] add_out6;
+
+	fa_24b add6
+	(
+		.a(add_a_in6),
+		.b(add_b_in6),
+		.out(add_out6)
+	);
+
+	reg [23:0] add_a_in7;
+	reg [23:0] add_b_in7;
+	wire [24:0] add_out7;
+
+	fa_24b add7
+	(
+		.a(add_a_in7),
+		.b(add_b_in7),
+		.out(add_out7)
+	);
+
+	reg [23:0] add_a_in8;
+	reg [23:0] add_b_in8;
+	wire [24:0] add_out8;
+
+	fa_24b add8
+	(
+		.a(add_a_in8),
+		.b(add_b_in8),
+		.out(add_out8)
+	);
+
+	reg [23:0] add_a_in9;
+	reg [23:0] add_b_in9;
+	wire [24:0] add_out9;
+
+	fa_24b add9
+	(
+		.a(add_a_in9),
+		.b(add_b_in9),
+		.out(add_out9)
+	);
+	
+	reg [2:0] shift_n0;
+	reg [7:0] shift_in0;
+	wire [7:0] shift_out0;
+	
+	barrel_shifter_8bit_R sh0
+	(
+		.in(shift_in0),
+		.ctrl(shift_n0),
+		.out(shift_out0)
+	);
+	
+	reg [2:0] shift_n1;
+	reg [7:0] shift_in1;
+	wire [7:0] shift_out1;
+	
+	barrel_shifter_8bit_R sh1
+	(
+		.in(shift_in1),
+		.ctrl(shift_n1),
+		.out(shift_out1)
+	);
   
-  fa_24b add1
-  (
-	.a(add_a_in),
-	.b(add_b_in),
-	.out(add_out)
-  );
 
   assign out[31] = o_sign;
   assign out[30:23] = o_exponent;
@@ -222,25 +335,25 @@ module adder(a, b, out);
     if (a_exponent == b_exponent) begin // Equal exponents
       o_exponent = a_exponent;
       if (a_sign == b_sign) begin // Equal signs = add
-        //o_mantissa = a_mantissa + b_mantissa;
-		add_a_in = a_mantissa;
-		add_b_in = b_mantissa;
-		o_mantissa = add_out;
+        // o_mantissa = a_mantissa + b_mantissa;
+		add_a_in0 = a_mantissa;
+		add_b_in0 = b_mantissa;
+		o_mantissa = add_out0;
         //Signify to shift
         o_mantissa[24] = 1;
         o_sign = a_sign;
       end else begin // Opposite signs = subtract
         if(a_mantissa > b_mantissa) begin
-          o_mantissa = a_mantissa - b_mantissa;
-		  // add_a_in = a_mantissa;
-		  // add_b_in = ~b_mantissa;
-		  // o_mantissa = add_out;		  
+          // o_mantissa = a_mantissa - b_mantissa;
+		  add_a_in1 = a_mantissa;
+		  add_b_in1 = ~b_mantissa;
+		  o_mantissa = add_out1;		
           o_sign = a_sign;
         end else begin
-          o_mantissa = b_mantissa - a_mantissa;
-		  // add_a_in = ~a_mantissa;
-		  // add_b_in = b_mantissa;
-		  // o_mantissa = add_out;
+          // o_mantissa = b_mantissa - a_mantissa;
+		  add_a_in2 = ~a_mantissa;
+		  add_b_in2 = b_mantissa;
+		  o_mantissa = add_out2;
           o_sign = b_sign;
         end
       end
@@ -248,50 +361,73 @@ module adder(a, b, out);
       if (a_exponent > b_exponent) begin // A is bigger
         o_exponent = a_exponent;
         o_sign = a_sign;
-		diff = a_exponent - b_exponent;
-		// add_a_in = {16'h00, a_exponent};
-		// add_b_in = {16'h00, ~b_exponent};
-		// diff = add_out[7:0];
-        tmp_mantissa = b_mantissa >> diff;
+		// diff = a_exponent - b_exponent;
+		add_a_in3 = {16'h00, a_exponent};
+		add_b_in3 = {16'h00, ~b_exponent};
+		diff = add_out3[7:0];
+        //tmp_mantissa = b_mantissa >> diff;
+		if (diff > 8) begin // A much bigger than B
+			o_sign = a_sign;
+			o_exponent = a_exponent;
+			o_mantissa = a_mantissa;
+			end
+		else begin
+		shift_n0 = diff[2:0];
+		shift_in0 = {24'h00, b_mantissa};
+		tmp_mantissa = {16'h00, shift_out0};
         if (a_sign == b_sign) begin
-          o_mantissa = a_mantissa + tmp_mantissa;
-		  // add_a_in = a_mantissa;
-		  // add_b_in = tmp_mantissa;
-		  // o_mantissa = add_out;
+          // o_mantissa = a_mantissa + tmp_mantissa;
+		  add_a_in4 = a_mantissa;
+		  add_b_in4 = tmp_mantissa;
+		  o_mantissa = add_out4;
 		  end
         else begin
-          	o_mantissa = a_mantissa - tmp_mantissa;
-			// add_a_in = a_mantissa;
-			// add_b_in = ~tmp_mantissa;
-			// o_mantissa = add_out;
+          	// o_mantissa = a_mantissa - tmp_mantissa;
+			add_a_in5 = a_mantissa;
+			add_b_in5 = ~tmp_mantissa;
+			o_mantissa = add_out5;
 			end
-      end else if (a_exponent < b_exponent) begin // B is bigger
+		end
+      end
+	  else if (a_exponent < b_exponent) begin // B is bigger
         o_exponent = b_exponent;
         o_sign = b_sign;
-        diff = b_exponent - a_exponent;
-		// add_a_in = {16'h00, ~a_exponent};
-		// add_b_in = {16'h00, b_exponent};
-		// diff = add_out[7:0];
-        tmp_mantissa = a_mantissa >> diff;
+        // diff = b_exponent - a_exponent;
+		add_a_in6 = {16'h00, ~a_exponent};
+		add_b_in6 = {16'h00, b_exponent};
+		diff = add_out6[7:0];
+		if (diff > 8) begin // B much bigger than A
+			o_sign = b_sign;
+			o_exponent = b_exponent;
+			o_mantissa = b_mantissa;
+		end
+		else begin
+		tmp_mantissa = a_mantissa >> diff;
+		// shift_n1 = diff[2:0];
+		// shift_in1 = {24'h00, a_mantissa};
+		// tmp_mantissa = {16'h00, shift_out1};
         if (a_sign == b_sign) begin
-          o_mantissa = b_mantissa + tmp_mantissa;
-		  // add_a_in = b_mantissa;
-		  // add_b_in = tmp_mantissa;
-		  // o_mantissa = add_out;
+          // o_mantissa = b_mantissa + tmp_mantissa;
+		  add_a_in7 = b_mantissa;
+		  add_b_in7 = tmp_mantissa;
+		  o_mantissa = add_out7;
         end else begin
-		  o_mantissa = b_mantissa - tmp_mantissa;
-		  // add_a_in = b_mantissa;
-		  // add_b_in = ~tmp_mantissa;
-		  // o_mantissa = add_out;
+		  // o_mantissa = b_mantissa - tmp_mantissa;
+		  add_a_in8 = b_mantissa;
+		  add_b_in8 = ~tmp_mantissa;
+		  o_mantissa = add_out8;
         end
+		end
       end
     end
     if(o_mantissa[24] == 1) begin
-      o_exponent = o_exponent + 1;
-	  // add_a_in = {16'h00, o_exponent};
-	  // add_b_in = 24'h01;
-	  // o_exponent = add_out[7:0];
-      o_mantissa = o_mantissa >> 1;
+      // o_exponent = o_exponent + 1;
+	  add_a_in9 = {16'h00, o_exponent};
+	  add_b_in9 = 24'h01;
+	  o_exponent = add_out9[7:0];
+      //o_mantissa = o_mantissa >> 1;
+	  tmp_mantissa = o_mantissa[24:1];
+	  o_mantissa = {1'b0, tmp_mantissa};
     end else if((o_mantissa[23] != 1) && (o_exponent != 0)) begin
       i_e = o_exponent;
       i_m = o_mantissa;
@@ -381,67 +517,138 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
   wire [24:0] in_m;
   reg [7:0] out_e;
   reg [24:0] out_m;
+  
+  reg [23:0] add_a_in;
+  reg [23:0] add_b_in;
+  wire [24:0] add_out;
+
+  fa_24b norm0
+  (
+	.a(add_a_in),
+	.b(add_b_in),
+	.out(add_out)
+  );
 
   always @ ( * ) begin
 		if (in_m[23:3] == 21'b000000000000000000001) begin
 			out_e = in_e - 20;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd20;
+			// out_e = add_out[7:0];
 			out_m = in_m << 20;
 		end else if (in_m[23:4] == 20'b00000000000000000001) begin
 			out_e = in_e - 19;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd19;
+			// out_e = add_out[7:0];
 			out_m = in_m << 19;
 		end else if (in_m[23:5] == 19'b0000000000000000001) begin
 			out_e = in_e - 18;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd18;
+			// out_e = add_out[7:0];			
 			out_m = in_m << 18;
 		end else if (in_m[23:6] == 18'b000000000000000001) begin
 			out_e = in_e - 17;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd17;
+			// out_e = add_out[7:0];
 			out_m = in_m << 17;
 		end else if (in_m[23:7] == 17'b00000000000000001) begin
 			out_e = in_e - 16;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd16;
+			// out_e = add_out[7:0];
 			out_m = in_m << 16;
 		end else if (in_m[23:8] == 16'b0000000000000001) begin
 			out_e = in_e - 15;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd15;
+			// out_e = add_out[7:0];
 			out_m = in_m << 15;
 		end else if (in_m[23:9] == 15'b000000000000001) begin
 			out_e = in_e - 14;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd14;
+			// out_e = add_out[7:0];
 			out_m = in_m << 14;
 		end else if (in_m[23:10] == 14'b00000000000001) begin
 			out_e = in_e - 13;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd13;
+			// out_e = add_out[7:0];
 			out_m = in_m << 13;
 		end else if (in_m[23:11] == 13'b0000000000001) begin
 			out_e = in_e - 12;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd12;
+			// out_e = add_out[7:0];
 			out_m = in_m << 12;
 		end else if (in_m[23:12] == 12'b000000000001) begin
 			out_e = in_e - 11;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd11;
+			// out_e = add_out[7:0];
 			out_m = in_m << 11;
 		end else if (in_m[23:13] == 11'b00000000001) begin
 			out_e = in_e - 10;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd10;
+			// out_e = add_out[7:0];
 			out_m = in_m << 10;
 		end else if (in_m[23:14] == 10'b0000000001) begin
 			out_e = in_e - 9;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd9;
+			// out_e = add_out[7:0];
 			out_m = in_m << 9;
 		end else if (in_m[23:15] == 9'b000000001) begin
 			out_e = in_e - 8;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd8;
+			// out_e = add_out[7:0];
 			out_m = in_m << 8;
 		end else if (in_m[23:16] == 8'b00000001) begin
 			out_e = in_e - 7;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd7;
+			// out_e = add_out[7:0];
 			out_m = in_m << 7;
 		end else if (in_m[23:17] == 7'b0000001) begin
 			out_e = in_e - 6;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd6;
+			// out_e = add_out[7:0];
 			out_m = in_m << 6;
 		end else if (in_m[23:18] == 6'b000001) begin
 			out_e = in_e - 5;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd5;
+			// out_e = add_out[7:0];
 			out_m = in_m << 5;
 		end else if (in_m[23:19] == 5'b00001) begin
 			out_e = in_e - 4;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd4;
+			// out_e = add_out[7:0];
 			out_m = in_m << 4;
 		end else if (in_m[23:20] == 4'b0001) begin
 			out_e = in_e - 3;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd3;
+			// out_e = add_out[7:0];
 			out_m = in_m << 3;
 		end else if (in_m[23:21] == 3'b001) begin
 			out_e = in_e - 2;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd2;
+			// out_e = add_out[7:0];
 			out_m = in_m << 2;
 		end else if (in_m[23:22] == 2'b01) begin
 			out_e = in_e - 1;
+			// add_a_in = {16'h00, in_e};
+			// add_b_in = ~24'd1;
+			// out_e = add_out[7:0];
 			out_m = in_m << 1;
 		end
   end
@@ -608,7 +815,7 @@ s1 = a ^ b;
 c1 = a & b;
 out = s1 ^ cin;
 c2 = s1 & cin;
-cout = c1 ^ c2;
+cout = c1 | c2;
 end
 endmodule
 
@@ -644,4 +851,91 @@ fa d20(a[20], b[20], c[19], out[20], c[20]);
 fa d21(a[21], b[21], c[20], out[21], c[21]);
 fa d22(a[22], b[22], c[21], out[22], c[22]);
 fa d23(a[23], b[23], c[22], out[23], out[24]);
+endmodule
+
+module mux2X1(in0, in1, sel, out);
+input in0, in1, sel;
+output out;
+wire in0, in1, sel;
+reg out;
+always@(*) begin
+out = sel?in1:in0;
+end
+endmodule
+
+module barrel_shifter_8bit_R (in, ctrl, out);
+  input  [7:0] in;
+  input [2:0] ctrl;
+  output [7:0] out;
+  wire [7:0] x,y;
+  
+	//4bit shift right
+	mux2X1  muxr_47 (.in0(in[7]),.in1(1'b0),.sel(ctrl[2]),.out(x[7]));
+	mux2X1  muxr_46 (.in0(in[6]),.in1(1'b0),.sel(ctrl[2]),.out(x[6]));
+	mux2X1  muxr_45 (.in0(in[5]),.in1(1'b0),.sel(ctrl[2]),.out(x[5]));
+	mux2X1  muxr_44 (.in0(in[4]),.in1(1'b0),.sel(ctrl[2]),.out(x[4]));
+	mux2X1  muxr_43 (.in0(in[3]),.in1(in[7]),.sel(ctrl[2]),.out(x[3]));
+	mux2X1  muxr_42 (.in0(in[2]),.in1(in[6]),.sel(ctrl[2]),.out(x[2]));
+	mux2X1  muxr_41 (.in0(in[1]),.in1(in[5]),.sel(ctrl[2]),.out(x[1]));
+	mux2X1  muxr_40 (.in0(in[0]),.in1(in[4]),.sel(ctrl[2]),.out(x[0]));
+	 
+	//2 bit shift right
+	 
+	mux2X1  muxr_27 (.in0(x[7]),.in1(1'b0),.sel(ctrl[1]),.out(y[7]));
+	mux2X1  muxr_26 (.in0(x[6]),.in1(1'b0),.sel(ctrl[1]),.out(y[6]));
+	mux2X1  muxr_25 (.in0(x[5]),.in1(x[7]),.sel(ctrl[1]),.out(y[5]));
+	mux2X1  muxr_24 (.in0(x[4]),.in1(x[6]),.sel(ctrl[1]),.out(y[4]));
+	mux2X1  muxr_23 (.in0(x[3]),.in1(x[5]),.sel(ctrl[1]),.out(y[3]));
+	mux2X1  muxr_22 (.in0(x[2]),.in1(x[4]),.sel(ctrl[1]),.out(y[2]));
+	mux2X1  muxr_21 (.in0(x[1]),.in1(x[3]),.sel(ctrl[1]),.out(y[1]));
+	mux2X1  muxr_20 (.in0(x[0]),.in1(x[2]),.sel(ctrl[1]),.out(y[0]));
+	 
+	//1 bit shift right
+	mux2X1  muxr_17 (.in0(y[7]),.in1(1'b0),.sel(ctrl[0]),.out(out[7]));
+	mux2X1  muxr_16 (.in0(y[6]),.in1(y[7]),.sel(ctrl[0]),.out(out[6]));
+	mux2X1  muxr_15 (.in0(y[5]),.in1(y[6]),.sel(ctrl[0]),.out(out[5]));
+	mux2X1  muxr_14 (.in0(y[4]),.in1(y[5]),.sel(ctrl[0]),.out(out[4]));
+	mux2X1  muxr_13 (.in0(y[3]),.in1(y[4]),.sel(ctrl[0]),.out(out[3]));
+	mux2X1  muxr_12 (.in0(y[2]),.in1(y[3]),.sel(ctrl[0]),.out(out[2]));
+	mux2X1  muxr_11 (.in0(y[1]),.in1(y[2]),.sel(ctrl[0]),.out(out[1]));
+	mux2X1  muxr_10 (.in0(y[0]),.in1(y[1]),.sel(ctrl[0]),.out(out[0]));
+	
+endmodule
+
+module barrel_shifter_8bit_L (in, ctrl, out);
+  input  [7:0] in;
+  input [2:0] ctrl;
+  output [7:0] out;
+  wire [7:0] x,y;
+  
+	//1 bit shift left
+	mux2X1 muxl_10 (.in0(1'b0), .in1(in[0]), .sel(ctrl[0]), .out(x[0]));
+	mux2X1 muxl_11 (.in0(in[0]), .in1(in[1]), .sel(ctrl[0]), .out(x[1]));
+	mux2X1 muxl_12 (.in0(in[1]), .in1(in[2]), .sel(ctrl[0]), .out(x[2]));
+	mux2X1 muxl_13 (.in0(in[2]), .in1(in[3]), .sel(ctrl[0]), .out(x[3]));
+	mux2X1 muxl_14 (.in0(in[3]), .in1(in[4]), .sel(ctrl[0]), .out(x[4]));
+	mux2X1 muxl_15 (.in0(in[4]), .in1(in[5]), .sel(ctrl[0]), .out(x[5]));
+	mux2X1 muxl_16 (.in0(in[5]), .in1(in[6]), .sel(ctrl[0]), .out(x[6]));
+	mux2X1 muxl_17 (.in0(in[6]), .in1(in[7]), .sel(ctrl[0]), .out(x[7]));
+	
+	//2 bit shift left
+	mux2X1 muxl_20 (.in0(1'b0), .in1(x[0]), .sel(ctrl[1]), .out(y[0]));
+	mux2X1 muxl_21 (.in0(1'b0), .in1(x[1]), .sel(ctrl[1]), .out(y[1]));
+	mux2X1 muxl_22 (.in0(x[0]), .in1(x[2]), .sel(ctrl[1]), .out(y[2]));
+	mux2X1 muxl_23 (.in0(x[1]), .in1(x[3]), .sel(ctrl[1]), .out(y[3]));
+	mux2X1 muxl_24 (.in0(x[2]), .in1(x[4]), .sel(ctrl[1]), .out(y[4]));
+	mux2X1 muxl_25 (.in0(x[3]), .in1(x[5]), .sel(ctrl[1]), .out(y[5]));
+	mux2X1 muxl_26 (.in0(x[4]), .in1(x[6]), .sel(ctrl[1]), .out(y[6]));
+	mux2X1 muxl_27 (.in0(x[5]), .in1(x[7]), .sel(ctrl[1]), .out(y[7]));
+	
+	//4 bit shift left
+	mux2X1 muxl_40 (.in0(1'b0), .in1(y[0]), .sel(ctrl[2]), .out(out[0]));
+	mux2X1 muxl_41 (.in0(1'b0), .in1(y[1]), .sel(ctrl[2]), .out(out[1]));
+	mux2X1 muxl_42 (.in0(1'b0), .in1(y[2]), .sel(ctrl[2]), .out(out[2]));
+	mux2X1 muxl_43 (.in0(1'b0), .in1(y[3]), .sel(ctrl[2]), .out(out[3]));
+	mux2X1 muxl_44 (.in0(y[2]), .in1(y[4]), .sel(ctrl[2]), .out(out[4]));
+	mux2X1 muxl_45 (.in0(y[3]), .in1(y[5]), .sel(ctrl[2]), .out(out[5]));
+	mux2X1 muxl_46 (.in0(y[4]), .in1(y[6]), .sel(ctrl[2]), .out(out[6]));
+	mux2X1 muxl_47 (.in0(y[5]), .in1(y[7]), .sel(ctrl[2]), .out(out[7]));
+	
 endmodule

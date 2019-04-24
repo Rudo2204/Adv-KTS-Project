@@ -34,45 +34,54 @@ module fpu_tb ();
  begin
  $dumpfile("fpu_tb.vcd");
  $dumpvars(0,clock, a, b, op, out);
- clock = 0;op = 2'b11;
-a = 32'b10100011110010000011000101001100;
-b = 32'b01000011100000110110100001011010;
-correct = 32'b10100111110011011000010110101001;
-#400 //-2.1704921e-17 MULT 262.81525 = -5.7043845e-15
-if ((correct - out > 2) && (out - correct > 2)) begin
+ clock = 0;op = 2'b10;
+a = 32'b11001010101011001111000011011111;
+b = 32'b01101010011110111001010111100001;
+correct = 32'b10011111101011111111100110111001;
+#400 //-5666927.5 DIV 7.603704e+25 = -7.4528514e-20
+if (correct[31:12] != out[31:12]) begin
 $display ("A      : %b %b %b %h", a[31], a[30:23], a[22:0], a);
 $display ("B      : %b %b %b %h", b[31], b[30:23], b[22:0], b);
 $display ("Output : %b %b %b %h", out[31], out[30:23], out[22:0], out);
 $display ("Correct: %b %b %b %h",correct[31], correct[30:23], correct[22:0], correct); $display();end
-a = 32'b00111101000100011011000110011110;
-b = 32'b01001001101100111001010000111001;
-correct = 32'b01000111010011000110011100011001;
-#400 //0.03556978 MULT 1471111.1 = 52327.098
-if ((correct - out > 2) && (out - correct > 2)) begin
+a = 32'b00010010000000000010101100101000;
+b = 32'b00010001100000111110000010010100;
+correct = 32'b00111111111110001100110011111100;
+#400 //4.0442873e-28 DIV 2.0806563e-28 = 1.9437556
+if (correct[31:12] != out[31:12]) begin
 $display ("A      : %b %b %b %h", a[31], a[30:23], a[22:0], a);
 $display ("B      : %b %b %b %h", b[31], b[30:23], b[22:0], b);
 $display ("Output : %b %b %b %h", out[31], out[30:23], out[22:0], out);
 $display ("Correct: %b %b %b %h",correct[31], correct[30:23], correct[22:0], correct); $display();end
-a = 32'b01101100000100100010011100000101;
-b = 32'b10111010110000000010010010011001;
-correct = 32'b11100111010110110110010001010001;
-#400 //7.067497e+26 MULT -0.0014659344 = -1.0360488e+24
-if ((correct - out > 2) && (out - correct > 2)) begin
+a = 32'b01101110111001001011100101001100;
+b = 32'b01000110101110100010010100010000;
+correct = 32'b01100111100111010100011101100111;
+#400 //3.5393296e+28 DIV 23826.531 = 1.4854574e+24
+if (correct[31:12] != out[31:12]) begin
 $display ("A      : %b %b %b %h", a[31], a[30:23], a[22:0], a);
 $display ("B      : %b %b %b %h", b[31], b[30:23], b[22:0], b);
 $display ("Output : %b %b %b %h", out[31], out[30:23], out[22:0], out);
 $display ("Correct: %b %b %b %h",correct[31], correct[30:23], correct[22:0], correct); $display();end
-a = 32'b10011110001110111001111110101100;
-b = 32'b01101010011111111001010110110101;
-correct = 32'b11001001001110110101000111000101;
-#400 //-9.932717e-21 MULT 7.7245764e+25 = -767260.3
-if ((correct - out > 2) && (out - correct > 2)) begin
+a = 32'b01000000001000001011001010011101;
+b = 32'b11101100011001111010001101101110;
+correct = 32'b10010011001100011001100100110010;
+#400 //2.5109017 DIV -1.12013456e+27 = -2.2416072e-27
+if (correct[31:12] != out[31:12]) begin
+$display ("A      : %b %b %b %h", a[31], a[30:23], a[22:0], a);
+$display ("B      : %b %b %b %h", b[31], b[30:23], b[22:0], b);
+$display ("Output : %b %b %b %h", out[31], out[30:23], out[22:0], out);
+$display ("Correct: %b %b %b %h",correct[31], correct[30:23], correct[22:0], correct); $display();end
+a = 32'b11110000101001001011001010000011;
+b = 32'b11011101100000100110110111010011;
+correct = 32'b01010010101000011010000101010000;
+#400 //-4.077708e+29 DIV -1.1748e+18 = 347098050000.0
+if (correct[31:12] != out[31:12]) begin
 $display ("A      : %b %b %b %h", a[31], a[30:23], a[22:0], a);
 $display ("B      : %b %b %b %h", b[31], b[30:23], b[22:0], b);
 $display ("Output : %b %b %b %h", out[31], out[30:23], out[22:0], out);
 $display ("Correct: %b %b %b %h",correct[31], correct[30:23], correct[22:0], correct); $display();end
 $display ("Done.");
-$finish;
+$stop;
  // stop the simulation
  end
 

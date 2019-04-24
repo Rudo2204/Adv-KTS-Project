@@ -493,8 +493,7 @@ module adder(a, b, out);
 	  add_op9 = 1'b0;
 	  o_exponent = add_out9[7:0];
       //o_mantissa = o_mantissa >> 1;
-	  tmp_mantissa = o_mantissa[24:1];
-	  o_mantissa = {1'b0, tmp_mantissa};
+	  o_mantissa = {1'b0, o_mantissa[24:1]};
     end else if((o_mantissa[23] != 1) && (o_exponent != 0)) begin
       i_e = o_exponent;
       i_m = o_mantissa;
@@ -521,7 +520,6 @@ module multiplier(a, b, out);
   reg [24:0] o_mantissa;
 
 	reg [47:0] product;
-	reg [46:0] tmp_product;
 
   assign out[31] = o_sign;
   assign out[30:23] = o_exponent;
@@ -630,8 +628,7 @@ module multiplier(a, b, out);
 	  add_op_norm2 = 1'b0;
 	  o_exponent = add_out_norm2[7:0];
       // product = product >> 1;
-	  tmp_product = product[47:1];
-	  product = {1'b0, tmp_product};
+	  product = {1'b0, product[47:1]};
     end else if((product[46] != 1) && (o_exponent != 0)) begin
       i_e = o_exponent;
       i_m = product;
@@ -675,8 +672,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			//out_m = in_m << 20;
-			tmp_m = {in_m[4:0], 20'h00};
-			out_m = tmp_m;
+			out_m = {in_m[4:0], 20'h00};
 		end else if (in_m[23:4] == 20'b00000000000000000001) begin
 			// out_e = in_e - 19;
 			addition_norm_a = {16'h00, in_e};
@@ -684,8 +680,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 19;
-			tmp_m = {in_m[5:0], 19'h00};
-			out_m = tmp_m;
+			out_m = {in_m[5:0], 19'h00};
 		end else if (in_m[23:5] == 19'b0000000000000000001) begin
 			// out_e = in_e - 18;
 			addition_norm_a = {16'h00, in_e};
@@ -693,8 +688,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 18;
-			tmp_m = {in_m[6:0], 18'h00};
-			out_m = tmp_m;
+			out_m = {in_m[6:0], 18'h00};
 		end else if (in_m[23:6] == 18'b000000000000000001) begin
 			// out_e = in_e - 17;
 			addition_norm_a = {16'h00, in_e};
@@ -702,8 +696,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 17;
-			tmp_m = {in_m[7:0], 17'h00};
-			out_m = tmp_m;
+			out_m = {in_m[7:0], 17'h00};
 		end else if (in_m[23:7] == 17'b00000000000000001) begin
 			// out_e = in_e - 16;
 			addition_norm_a = {16'h00, in_e};
@@ -711,8 +704,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 16;
-			tmp_m = {in_m[8:0], 16'h00};
-			out_m = tmp_m;
+			out_m = {in_m[8:0], 16'h00};
 		end else if (in_m[23:8] == 16'b0000000000000001) begin
 			// out_e = in_e - 15;
 			addition_norm_a = {16'h00, in_e};
@@ -720,8 +712,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 15;
-			tmp_m = {in_m[9:0], 15'h00};
-			out_m = tmp_m;
+			out_m = {in_m[9:0], 15'h00};
 		end else if (in_m[23:9] == 15'b000000000000001) begin
 			// out_e = in_e - 14;
 			addition_norm_a = {16'h00, in_e};
@@ -729,8 +720,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 14;
-			tmp_m = {in_m[10:0], 14'h00};
-			out_m = tmp_m;
+			out_m = {in_m[10:0], 14'h00};
 		end else if (in_m[23:10] == 14'b00000000000001) begin
 			// out_e = in_e - 13;
 			addition_norm_a = {16'h00, in_e};
@@ -738,8 +728,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 13;
-			tmp_m = {in_m[11:0], 13'h00};
-			out_m = tmp_m;
+			out_m = {in_m[11:0], 13'h00};
 		end else if (in_m[23:11] == 13'b0000000000001) begin
 			// out_e = in_e - 12;
 			addition_norm_a = {16'h00, in_e};
@@ -747,8 +736,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 12;
-			tmp_m = {in_m[12:0], 12'h00};
-			out_m = tmp_m;
+			out_m = {in_m[12:0], 12'h00};
 		end else if (in_m[23:12] == 12'b000000000001) begin
 			// out_e = in_e - 11;
 			addition_norm_a = {16'h00, in_e};
@@ -756,8 +744,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 11;
-			tmp_m = {in_m[13:0], 11'h00};
-			out_m = tmp_m;
+			out_m = {in_m[13:0], 11'h00};
 		end else if (in_m[23:13] == 11'b00000000001) begin
 			// out_e = in_e - 10;
 			addition_norm_a = {16'h00, in_e};
@@ -765,8 +752,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 10;
-			tmp_m = {in_m[14:0], 10'h00};
-			out_m = tmp_m;
+			out_m = {in_m[14:0], 10'h00};
 		end else if (in_m[23:14] == 10'b0000000001) begin
 			// out_e = in_e - 9;
 			addition_norm_a = {16'h00, in_e};
@@ -774,8 +760,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 9;
-			tmp_m = {in_m[15:0], 9'h00};
-			out_m = tmp_m;
+			out_m = {in_m[15:0], 9'h00};
 		end else if (in_m[23:15] == 9'b000000001) begin
 			// out_e = in_e - 8;
 			addition_norm_a = {16'h00, in_e};
@@ -783,8 +768,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 8;
-			tmp_m = {in_m[16:0], 8'h00};
-			out_m = tmp_m;
+			out_m = {in_m[16:0], 8'h00};
 		end else if (in_m[23:16] == 8'b00000001) begin
 			// out_e = in_e - 7;
 			addition_norm_a = {16'h00, in_e};
@@ -792,8 +776,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 7;
-			tmp_m = {in_m[17:0], 7'h00};
-			out_m = tmp_m;
+			out_m = {in_m[17:0], 7'h00};
 		end else if (in_m[23:17] == 7'b0000001) begin
 			// out_e = in_e - 6;
 			addition_norm_a = {16'h00, in_e};
@@ -801,8 +784,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 6;
-			tmp_m = {in_m[18:0], 6'h00};
-			out_m = tmp_m;
+			out_m = {in_m[18:0], 6'h00};
 		end else if (in_m[23:18] == 6'b000001) begin
 			// out_e = in_e - 5;
 			addition_norm_a = {16'h00, in_e};
@@ -810,8 +792,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 5;
-			tmp_m = {in_m[19:0], 5'h00};
-			out_m = tmp_m;
+			out_m = {in_m[19:0], 5'h00};
 		end else if (in_m[23:19] == 5'b00001) begin
 			// out_e = in_e - 4;
 			addition_norm_a = {16'h00, in_e};
@@ -819,8 +800,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 4;
-			tmp_m = {in_m[20:0], 4'h00};
-			out_m = tmp_m;
+			out_m = {in_m[20:0], 4'h0};
 		end else if (in_m[23:20] == 4'b0001) begin
 			// out_e = in_e - 3;
 			addition_norm_a = {16'h00, in_e};
@@ -828,8 +808,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 3;
-			tmp_m = {in_m[21:0], 3'h00};
-			out_m = tmp_m;
+			out_m = {in_m[21:0], 3'h0};
 		end else if (in_m[23:21] == 3'b001) begin
 			// out_e = in_e - 2;
 			addition_norm_a = {16'h00, in_e};
@@ -837,8 +816,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 2;
-			tmp_m = {in_m[22:0], 2'h00};
-			out_m = tmp_m;
+			out_m = {in_m[22:0], 2'h0};
 		end else if (in_m[23:22] == 2'b01) begin
 			// out_e = in_e - 1;
 			addition_norm_a = {16'h00, in_e};
@@ -846,8 +824,7 @@ module addition_normaliser(in_e, in_m, out_e, out_m);
 			addition_norm_op = 1'b1;
 			out_e = addition_norm_out[7:0];
 			// out_m = in_m << 1;
-			tmp_m = {in_m[23:0], 1'h00};
-			out_m = tmp_m;
+			out_m = {in_m[23:0], 1'h0};
 		end
   end
 endmodule
@@ -885,8 +862,7 @@ module multiplication_normaliser(in_e, in_m, out_e, out_m);
 			multiplication_norm_op = 1'b1;
 			out_e = multiplication_norm_out[7:0];
 			// out_m = in_m << 5;
-			tmp_man = {in_m[42:0], 5'h00};
-			out_m = tmp_man;
+			out_m = {in_m[42:0], 5'h00};
 		end else if (in_m[46:42] == 5'b00001) begin
 			// out_e = in_e - 4;
 			multiplication_norm_a = {16'h00, in_e};
@@ -894,8 +870,7 @@ module multiplication_normaliser(in_e, in_m, out_e, out_m);
 			multiplication_norm_op = 1'b1;
 			out_e = multiplication_norm_out[7:0];
 			// out_m = in_m << 4;
-			tmp_man = {in_m[43:0], 4'h00};
-			out_m = tmp_man;
+			out_m = {in_m[43:0], 4'h0};
 		end else if (in_m[46:43] == 4'b0001) begin
 			// out_e = in_e - 3;
 			multiplication_norm_a = {16'h00, in_e};
@@ -903,8 +878,7 @@ module multiplication_normaliser(in_e, in_m, out_e, out_m);
 			multiplication_norm_op = 1'b1;
 			out_e = multiplication_norm_out[7:0];
 			// out_m = in_m << 3;
-			tmp_man = {in_m[44:0], 3'h00};
-			out_m = tmp_man;
+			out_m = {in_m[44:0], 3'h0};
 		end else if (in_m[46:44] == 3'b001) begin
 			// out_e = in_e - 2;
 			multiplication_norm_a = {16'h00, in_e};
@@ -912,8 +886,7 @@ module multiplication_normaliser(in_e, in_m, out_e, out_m);
 			multiplication_norm_op = 1'b1;
 			out_e = multiplication_norm_out[7:0];
 			// out_m = in_m << 2;
-			tmp_man = {in_m[45:0], 2'h00};
-			out_m = tmp_man;
+			out_m = {in_m[45:0], 2'h0};
 		end else if (in_m[46:45] == 2'b01) begin
 			// out_e = in_e - 1;
 			multiplication_norm_a = {16'h00, in_e};
@@ -921,8 +894,7 @@ module multiplication_normaliser(in_e, in_m, out_e, out_m);
 			multiplication_norm_op = 1'b1;
 			out_e = multiplication_norm_out[7:0];
 			// out_m = in_m << 1;
-			tmp_man = {in_m[46:0], 1'h00};
-			out_m = tmp_man;
+			out_m = {in_m[46:0], 1'h0};
 		end
   end
 endmodule
@@ -1346,4 +1318,4 @@ r[0] = a[1]; div_a_in1 = r; r = div_out1; q[0] = div_cout1; q = {q[47:0], 1'b0};
 r[0] = a[0]; div_a_in0 = r; r = div_out0; q[0] = div_cout0;
 	out = q[24:1];
 end
-endmodule	
+endmodule

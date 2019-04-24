@@ -171,17 +171,154 @@ module adder(a, b, out);
   reg [7:0] diff;
   reg [23:0] tmp_mantissa;
   reg [7:0] tmp_exponent;
+  
+	reg [23:0] add_a_in0;
+	reg [23:0] add_b_in0;
+	reg add_op0;
+	wire [24:0] add_out0;
 
+	fa_24b add0
+	(
+		.a(add_a_in0),
+		.b(add_b_in0),
+		.op(add_op0),
+		.out(add_out0)
+	);
+
+	reg [23:0] add_a_in1;
+	reg [23:0] add_b_in1;
+	reg add_op1;
+	wire [24:0] add_out1;
+
+	fa_24b add1
+	(
+		.a(add_a_in1),
+		.b(add_b_in1),
+		.op(add_op1),
+		.out(add_out1)
+	);
+
+	reg [23:0] add_a_in2;
+	reg [23:0] add_b_in2;
+	reg add_op2;
+	wire [24:0] add_out2;
+
+	fa_24b add2
+	(
+		.a(add_a_in2),
+		.b(add_b_in2),
+		.op(add_op2),
+		.out(add_out2)
+	);
+
+	reg [23:0] add_a_in3;
+	reg [23:0] add_b_in3;
+	reg add_op3;
+	wire [24:0] add_out3;
+
+	fa_24b add3
+	(
+		.a(add_a_in3),
+		.b(add_b_in3),
+		.op(add_op3),
+		.out(add_out3)
+	);
+
+	reg [23:0] add_a_in4;
+	reg [23:0] add_b_in4;
+	reg add_op4;
+	wire [24:0] add_out4;
+
+	fa_24b add4
+	(
+		.a(add_a_in4),
+		.b(add_b_in4),
+		.op(add_op4),
+		.out(add_out4)
+	);
+
+	reg [23:0] add_a_in5;
+	reg [23:0] add_b_in5;
+	reg add_op5;
+	wire [24:0] add_out5;
+
+	fa_24b add5
+	(
+		.a(add_a_in5),
+		.b(add_b_in5),
+		.op(add_op5),
+		.out(add_out5)
+	);
+
+	reg [23:0] add_a_in6;
+	reg [23:0] add_b_in6;
+	reg add_op6;
+	wire [24:0] add_out6;
+
+	fa_24b add6
+	(
+		.a(add_a_in6),
+		.b(add_b_in6),
+		.op(add_op6),
+		.out(add_out6)
+	);
+
+	reg [23:0] add_a_in7;
+	reg [23:0] add_b_in7;
+	reg add_op7;
+	wire [24:0] add_out7;
+
+	fa_24b add7
+	(
+		.a(add_a_in7),
+		.b(add_b_in7),
+		.op(add_op7),
+		.out(add_out7)
+	);
+
+	reg [23:0] add_a_in8;
+	reg [23:0] add_b_in8;
+	reg add_op8;
+	wire [24:0] add_out8;
+
+	fa_24b add8
+	(
+		.a(add_a_in8),
+		.b(add_b_in8),
+		.op(add_op8),
+		.out(add_out8)
+	);
+
+	reg [23:0] add_a_in9;
+	reg [23:0] add_b_in9;
+	reg add_op9;
+	wire [24:0] add_out9;
+
+	fa_24b add9
+	(
+		.a(add_a_in9),
+		.b(add_b_in9),
+		.op(add_op9),
+		.out(add_out9)
+	);
+	
+	reg [23:0] real_add_a;
+	reg [23:0] real_add_b;
+	reg real_op;
+	wire [24:0] real_out;
+	
+	real_fa_24b radd0
+	(
+		.a(real_add_a),
+		.b(real_add_b),
+		.op(real_op),
+		.out(real_out)
+	);
 
   reg  [7:0] i_e;
   reg  [24:0] i_m;
   wire [7:0] o_e;
   wire [24:0] o_m;
-  
-  reg [23:0] add_a_in;
-  reg [23:0] add_b_in;
-  reg cin;
-  wire [24:0] add_out;
 
   addition_normaliser norm1
   (
@@ -189,13 +326,6 @@ module adder(a, b, out);
     .in_m(i_m),
     .out_e(o_e),
     .out_m(o_m)
-  );
-  
-  fa_24b add1
-  (
-	.a(add_a_in),
-	.b(add_b_in),
-	.out(add_out)
   );
 
   assign out[31] = o_sign;
@@ -223,24 +353,27 @@ module adder(a, b, out);
       o_exponent = a_exponent;
       if (a_sign == b_sign) begin // Equal signs = add
         //o_mantissa = a_mantissa + b_mantissa;
-		add_a_in = a_mantissa;
-		add_b_in = b_mantissa;
-		o_mantissa = add_out;
+		add_a_in0 = a_mantissa;
+		add_b_in0 = b_mantissa;
+		add_op0 = 1'b0;
+		o_mantissa = add_out0;
         //Signify to shift
         o_mantissa[24] = 1;
         o_sign = a_sign;
       end else begin // Opposite signs = subtract
         if(a_mantissa > b_mantissa) begin
-          o_mantissa = a_mantissa - b_mantissa;
-		  // add_a_in = a_mantissa;
-		  // add_b_in = ~b_mantissa;
-		  // o_mantissa = add_out;		  
+          //o_mantissa = a_mantissa - b_mantissa;
+		  add_a_in1 = a_mantissa;
+		  add_b_in1 = ~b_mantissa;
+		  add_op1 = 1'b1;
+		  o_mantissa = {1'b0, add_out1[23:0]};
           o_sign = a_sign;
         end else begin
-          o_mantissa = b_mantissa - a_mantissa;
-		  // add_a_in = ~a_mantissa;
-		  // add_b_in = b_mantissa;
-		  // o_mantissa = add_out;
+          //o_mantissa = b_mantissa - a_mantissa;
+		  add_a_in2 = ~a_mantissa;
+		  add_b_in2 = b_mantissa;
+		  add_op2 = 1'b1;
+		  o_mantissa = {1'b0, add_out2[23:0]};
           o_sign = b_sign;
         end
       end
@@ -248,49 +381,56 @@ module adder(a, b, out);
       if (a_exponent > b_exponent) begin // A is bigger
         o_exponent = a_exponent;
         o_sign = a_sign;
-		diff = a_exponent - b_exponent;
-		// add_a_in = {16'h00, a_exponent};
-		// add_b_in = {16'h00, ~b_exponent};
-		// diff = add_out[7:0];
+		//diff = a_exponent - b_exponent;
+		add_a_in3 = {16'h00, a_exponent};
+		add_b_in3 = ~{16'h00, b_exponent};
+		add_op3 = 1'b1;
+		diff = add_out3[7:0];		
         tmp_mantissa = b_mantissa >> diff;
         if (a_sign == b_sign) begin
-          o_mantissa = a_mantissa + tmp_mantissa;
-		  // add_a_in = a_mantissa;
-		  // add_b_in = tmp_mantissa;
-		  // o_mantissa = add_out;
+          // o_mantissa = a_mantissa + tmp_mantissa;
+		  add_a_in4 = a_mantissa;
+		  add_b_in4 = tmp_mantissa;
+		  add_op4 = 1'b0;
+		  o_mantissa = add_out4;
 		  end
         else begin
-          	o_mantissa = a_mantissa - tmp_mantissa;
-			// add_a_in = a_mantissa;
-			// add_b_in = ~tmp_mantissa;
-			// o_mantissa = add_out;
-			end
+          	//o_mantissa = a_mantissa - tmp_mantissa;
+			add_a_in5 = a_mantissa;
+			add_b_in5 = ~tmp_mantissa;
+			add_op5 = 1'b1;
+			o_mantissa = {1'b0, add_out5[23:0]};
+		end
       end else if (a_exponent < b_exponent) begin // B is bigger
         o_exponent = b_exponent;
         o_sign = b_sign;
-        diff = b_exponent - a_exponent;
-		// add_a_in = {16'h00, ~a_exponent};
-		// add_b_in = {16'h00, b_exponent};
-		// diff = add_out[7:0];
+        //diff = b_exponent - a_exponent;
+		add_a_in6 = ~{16'h00, a_exponent};
+		add_b_in6 = {16'h00, b_exponent};
+		add_op6 = 1'b1;
+		diff = add_out6[7:0];
         tmp_mantissa = a_mantissa >> diff;
         if (a_sign == b_sign) begin
-          o_mantissa = b_mantissa + tmp_mantissa;
-		  // add_a_in = b_mantissa;
-		  // add_b_in = tmp_mantissa;
-		  // o_mantissa = add_out;
+          //o_mantissa = b_mantissa + tmp_mantissa;
+		  add_a_in7 = b_mantissa;
+		  add_b_in7 = tmp_mantissa;
+		  add_op7 = 1'b0;
+		  o_mantissa = add_out7;
         end else begin
-		  o_mantissa = b_mantissa - tmp_mantissa;
-		  // add_a_in = b_mantissa;
-		  // add_b_in = ~tmp_mantissa;
-		  // o_mantissa = add_out;
+			// o_mantissa = b_mantissa - tmp_mantissa;
+			add_a_in8 = b_mantissa;
+			add_b_in8 = ~tmp_mantissa;
+			add_op8 = 1'b1;
+			o_mantissa = {1'b0, add_out8[23:0]};
         end
       end
     end
     if(o_mantissa[24] == 1) begin
-      o_exponent = o_exponent + 1;
-	  // add_a_in = {16'h00, o_exponent};
-	  // add_b_in = 24'h01;
-	  // o_exponent = add_out[7:0];
+      //o_exponent = o_exponent + 1;
+	  add_a_in9 = {16'h00, o_exponent};
+	  add_b_in9 = 24'h01;
+	  add_op9 = 1'b0;
+	  o_exponent = add_out9[7:0];
       o_mantissa = o_mantissa >> 1;
     end else if((o_mantissa[23] != 1) && (o_exponent != 0)) begin
       i_e = o_exponent;
@@ -608,19 +748,20 @@ s1 = a ^ b;
 c1 = a & b;
 out = s1 ^ cin;
 c2 = s1 & cin;
-cout = c1 ^ c2;
+cout = c1 | c2;
 end
 endmodule
 
-module fa_24b(a, b, out);
+module fa_24b(a, b, op, out);
 input [23:0] a, b;
+input op;
 output [24:0] out;
 wire [23:0] a, b;
-
+wire op;
 wire [24:0] out;
 wire [22:0] c;
 
-fa d0(a[0], b[0], 1'b0, out[0], c[0]);
+fa d0(a[0], b[0], op, out[0], c[0]);
 fa d1(a[1], b[1], c[0], out[1], c[1]);
 fa d2(a[2], b[2], c[1], out[2], c[2]);
 fa d3(a[3], b[3], c[2], out[3], c[3]);
