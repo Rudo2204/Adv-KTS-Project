@@ -5,6 +5,15 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 Top level modules:
 	fpu_tb
 
+} {} {}} {E:/KTS nang cao/FPU/multiplier.v} {1 {vlog -work work -stats=none {E:/KTS nang cao/FPU/multiplier.v}
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module dadda24
+-- Compiling module ha
+-- Compiling module fai
+
+Top level modules:
+	dadda24
+
 } {} {}} {E:/KTS nang cao/FPU/fpu.v} {1 {vlog -work work -stats=none {E:/KTS nang cao/FPU/fpu.v}
 Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
 -- Compiling module fpu
@@ -23,14 +32,5 @@ Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 
 
 Top level modules:
 	fpu
-
-} {} {}} {E:/KTS nang cao/FPU/multiplier.v} {1 {vlog -work work -stats=none {E:/KTS nang cao/FPU/multiplier.v}
-Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
--- Compiling module dadda24
--- Compiling module ha
--- Compiling module fai
-
-Top level modules:
-	dadda24
 
 } {} {}}
