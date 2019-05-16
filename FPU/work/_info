@@ -19,7 +19,7 @@ n@_opt
 OL;O;10.7;67
 R0
 vadder
-Z1 !s110 1557131870
+Z1 !s110 1557207943
 !i10b 1
 !s100 :z]hjBViE1CeZi8g^_=DU3
 Ia1jSPc^WMOfHX34kPbFhV1
@@ -33,7 +33,7 @@ Z7 OP;L;10.4a;61
 r1
 !s85 0
 31
-Z8 !s108 1557131870.000000
+Z8 !s108 1557207943.000000
 Z9 !s107 E:/KTS nang cao/FPU/fpu.v|
 Z10 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/fpu.v|
 !s101 -O0
@@ -168,23 +168,23 @@ R10
 R11
 nbarrel_shifter_8bit_@r
 vdadda24
-R1
+Z15 !s110 1557207944
 !i10b 1
 !s100 `IG>_RM`07b@9AUVk5X3>1
 IF8S<J`i4Z[oBINT`I7Kf33
 R2
 R3
 R4
-Z15 8E:/KTS nang cao/FPU/multiplier.v
-Z16 FE:/KTS nang cao/FPU/multiplier.v
+Z16 8E:/KTS nang cao/FPU/multiplier.v
+Z17 FE:/KTS nang cao/FPU/multiplier.v
 L0 1
 R7
 r1
 !s85 0
 31
-R8
-Z17 !s107 E:/KTS nang cao/FPU/multiplier.v|
-Z18 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/multiplier.v|
+Z18 !s108 1557207944.000000
+Z19 !s107 E:/KTS nang cao/FPU/multiplier.v|
+Z20 !s90 -reportprogress|300|-work|work|-stats=none|E:/KTS nang cao/FPU/multiplier.v|
 !s101 -O0
 !i113 1
 R11
@@ -336,23 +336,23 @@ R10
 !i113 1
 R11
 vfai
-R1
+R15
 !i10b 1
 !s100 6n;9^Q:JL9XGU`1CBnnkW2
 IfkhH:1cZ=Y1;calaGdYJo0
 R2
 R3
 R4
-R15
 R16
+R17
 L0 819
 R7
 r1
 !s85 0
 31
-R8
-R17
 R18
+R19
+R20
 !s101 -O0
 !i113 1
 R11
@@ -378,13 +378,13 @@ R10
 !i113 1
 R11
 vfpu_tb
-R1
+R15
 !i10b 1
-!s100 kNfPc]10ZRm1JDOUSTmUe0
-Im9R25TfHbF5]5F@nX8B7]0
+!s100 h1A6f;T?DgnmYNOMDQ^MH3
+I6ZeIAzABRi3>l<ObfR52a0
 R2
 R3
-w1557131867
+w1557207913
 8E:/KTS nang cao/FPU/fpu_tb.v
 FE:/KTS nang cao/FPU/fpu_tb.v
 L0 6
@@ -420,23 +420,23 @@ R10
 !i113 1
 R11
 vha
-R1
+R15
 !i10b 1
 !s100 LV=9V5mNMRC0VVWh]VcNz1
 I`eHkS0:17^3f^30N0J[i]1
 R2
 R3
 R4
-R15
 R16
+R17
 L0 812
 R7
 r1
 !s85 0
 31
-R8
-R17
 R18
+R19
+R20
 !s101 -O0
 !i113 1
 R11
